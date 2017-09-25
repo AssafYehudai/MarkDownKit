@@ -55,7 +55,7 @@ public class MarkDown {
     
     // MARK: - Public Marking Functions
     
-    func markDown() -> NSAttributedString {
+    public func markDown() -> NSAttributedString {
         var components = getMarkDownComponents(.code)
         updateAtterbutedTextFrom(components)
         
@@ -182,13 +182,4 @@ public class MarkDown {
     }
 
 }
-
-
-// ----- debug indication code -----
-// #################################
-
-//let lowerBound = text.index(at: lowerB)
-//let upperBound = text.index(at: upperB)
-//let range = Range(uncheckedBounds: (lowerBound, upperBound))
-//print("res from text: - " + text.substring(with: range))
 

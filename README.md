@@ -17,7 +17,7 @@ MarkDownKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ChatyMarkDownKit', '~>0.4.0'
+pod 'ChatyMarkDownKit', '~>0.5.0'
 ```
 
 ## Author
@@ -27,3 +27,15 @@ AssafYehudai, assaf.yehudai@gmail.com
 ## License
 
 MarkDownKit is available under the MIT license. See the LICENSE file for more info.
+
+## Example code 
+```
+let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip ex ea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
+
+var textView: UITextView!
+
+init() {
+    textView.attributedText = MarkDown(string: TEXT).markDown()
+}
+
+```
