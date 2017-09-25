@@ -39,7 +39,7 @@ import Foundation
     
     let none = NSFont.systemFont(ofSize: 16)
     let bold = NSFont.boldSystemFont(ofSize: 16)
-    let italic = NSFont(name: "Helvetica-LightOblique", size: 15)
+    let italic = NSFont(name: "Helvetica-LightOblique", size: 15)!
     let boldItalic = NSFont(name: "Helvetica-BoldOblique", size: 16)
     let code = NSFont(name: "Courier", size: 14)
     let forgroundColor = NSColor.codeForeground
