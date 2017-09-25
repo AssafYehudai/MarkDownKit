@@ -1,0 +1,16 @@
+PODS:
+  - MarkDownKit (0.1.0)
+
+DEPENDENCIES:
+  - MarkDownKit (from `../`)
+
+EXTERNAL SOURCES:
+  MarkDownKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MarkDownKit: 333bf9658153365e37ef63035c8b1e118c962403
+
+PODFILE CHECKSUM: 50bdbadb7f8f75efb96365cfa948eb4b2f0c2253
+
+COCOAPODS: 1.2.1

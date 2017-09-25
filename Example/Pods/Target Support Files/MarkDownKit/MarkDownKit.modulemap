@@ -1,0 +1,6 @@
+framework module MarkDownKit {
+  umbrella header "MarkDownKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
