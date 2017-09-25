@@ -46,8 +46,6 @@ import Foundation
     
 #endif
 
-let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip ex ea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
-
 
 class MarkDown {
     
@@ -171,7 +169,7 @@ class MarkDown {
             return [NSFontAttributeName: boldItalic!]
         case .code:
             return [NSFontAttributeName: code!,
-                    NSForegroundColorAttributeName: foregroundColor]
+                    NSForegroundColorAttributeName: forgroundColor]
         default:
             return [NSFontAttributeName: none]
         }
