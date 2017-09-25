@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'MarkDownKit'
-  s.version          = '0.1.0'
+  s.name             = 'ChatyMarkDownKit'
+  s.version          = '0.2.0'
   s.summary          = 'MarkDownKit is a kit allowing you to use markdown notation in your apps, on iOS and macOS'
 
 # This description is used to generate tags and improve search results.

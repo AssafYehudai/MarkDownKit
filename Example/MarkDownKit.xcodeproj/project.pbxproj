@@ -17,10 +17,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		659CEEFB75D42B1E69468139 /* Pods-MarkDownKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkDownKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarkDownKit_Tests/Pods-MarkDownKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		72728E8A014143B668AA50C4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		DC3F73F59214835B2D5A45CB /* MarkDownKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MarkDownKit.podspec; path = ../MarkDownKit.podspec; sourceTree = "<group>"; };
+		72728E8A014143B668AA50C4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DC3F73F59214835B2D5A45CB /* ChatyMarkDownKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ChatyMarkDownKit.podspec; path = ../ChatyMarkDownKit.podspec; sourceTree = "<group>"; };
 		E90DF55F9E60A6607AA86FCC /* Pods-MarkDownKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkDownKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarkDownKit_Tests/Pods-MarkDownKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		EF4FBFF9613BE11E594F9888 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EF4FBFF9613BE11E594F9888 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				DC3F73F59214835B2D5A45CB /* MarkDownKit.podspec */,
+				DC3F73F59214835B2D5A45CB /* ChatyMarkDownKit.podspec */,
 				EF4FBFF9613BE11E594F9888 /* README.md */,
 				72728E8A014143B668AA50C4 /* LICENSE */,
 			);
@@ -131,10 +131,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0820;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0820;
