@@ -22,7 +22,7 @@ pod 'MarkDownKit'
 
 ## Author
 
-AssafYehudai, assaf@hero-apps.io
+AssafYehudai, assaf.yehudai@gmail.com
 
 ## License
 
