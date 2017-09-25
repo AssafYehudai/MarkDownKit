@@ -12,6 +12,7 @@
 		15A4CD29741C708EF701C172ACACC089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		230498171F796E4900BE5C5F /* MarkDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230498151F796E4900BE5C5F /* MarkDown.swift */; };
 		230498191F796E4900BE5C5F /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230498161F796E4900BE5C5F /* StringEx.swift */; };
+		235C4A4C1F79B272007CD271 /* OSColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C4A4B1F79B272007CD271 /* OSColorEx.swift */; };
 		41B06F9CCE5B0B950F6C498021F2375E /* Pods-MarkDownKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D859C9279437885BC937BBD73CC4788 /* Pods-MarkDownKit_Tests-dummy.m */; };
 		E15D58314974CDF2C05A4473F2B27448 /* Pods-MarkDownKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C35ED9D8BC698E43EBA76372E4A64C /* Pods-MarkDownKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE2B97B1E569CD911ED8ED84D64D1D1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -32,6 +33,7 @@
 		1F0944FD7FDAFCE94503E746FE921D77 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230498151F796E4900BE5C5F /* MarkDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkDown.swift; sourceTree = "<group>"; };
 		230498161F796E4900BE5C5F /* StringEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
+		235C4A4B1F79B272007CD271 /* OSColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSColorEx.swift; sourceTree = "<group>"; };
 		34F3D5AED4730A9414328A8908EE6679 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E4DEC46066211448FDE352805ECC050 /* Pods-MarkDownKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MarkDownKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4EF48C184CA267716A9B6277CF030975 /* MarkDownKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarkDownKit-dummy.m"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				230498151F796E4900BE5C5F /* MarkDown.swift */,
 				230498161F796E4900BE5C5F /* StringEx.swift */,
+				235C4A4B1F79B272007CD271 /* OSColorEx.swift */,
 			);
 			name = MarkDown;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235C4A4C1F79B272007CD271 /* OSColorEx.swift in Sources */,
 				230498171F796E4900BE5C5F /* MarkDown.swift in Sources */,
 				230498191F796E4900BE5C5F /* StringEx.swift in Sources */,
 				0C2B9D5C3E9D0FAC30C74B69F7E45077 /* MarkDownKit-dummy.m in Sources */,

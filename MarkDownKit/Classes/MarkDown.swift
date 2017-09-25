@@ -11,55 +11,23 @@ import Foundation
 #if os(iOS)
     import UIKit
     
-    let none = UIFont.systemFont(ofSize: 16)
-    let bold = UIFont.boldSystemFont(ofSize: 16)
-    let italic = UIFont.italicSystemFont(ofSize: 15)
-    let boldItalic = UIFont(name: "Helvetica-BoldOblique", size: 16)
-    let code = UIFont(name: "Courier", size: 14)
-    let forgroundColor = UIColor.codeForeground
-    
-    extension UIColor {
-        
-        class var codeForeground: UIColor {
-            return UIColor(red: 206 / 255.0 , green: 26 / 255.0 , blue: 83 / 255.0 , alpha: 1)
-        }
-    }
-    
-    extension MarkDown {
-        func charFontAttributeAt(_ index: Int) -> UIFont? {
-            
-            let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
-            return charAttributes[NSFontAttributeName] as? UIFont
-        }
-    }
+    typealias OSFont = UIFont
+    typealias OSColor = UIColor
     
 #elseif os(macOS)
     import Cocoa
     import AppKit
     
-    let none = NSFont.systemFont(ofSize: 16)
-    let bold = NSFont.boldSystemFont(ofSize: 16)
-    let italic = NSFont(name: "Helvetica-LightOblique", size: 15)!
-    let boldItalic = NSFont(name: "Helvetica-BoldOblique", size: 16)
-    let code = NSFont(name: "Courier", size: 14)
-    let forgroundColor = NSColor.codeForeground
-    
-    extension NSColor {
-        
-        class var codeForeground: NSColor {
-            return NSColor(red: 206 / 255.0 , green: 26 / 255.0 , blue: 83 / 255.0 , alpha: 1)
-        }
-    }
-    
-    extension MarkDown {
-        func charFontAttributeAt(_ index: Int) -> NSFont? {
-            
-            let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
-            return charAttributes[NSFontAttributeName] as? NSFont
-        }
-    }
+    typealias OSFont = NSFont
+    typealias OSColor = NSColor
     
 #endif
+
+let none = OSFont.systemFont(ofSize: 16)
+let bold = OSFont.boldSystemFont(ofSize: 16)
+let italic = OSFont(name: "Helvetica-LightOblique", size: 15)!
+let boldItalic = OSFont(name: "Helvetica-BoldOblique", size: 16)
+let code = OSFont(name: "Courier", size: 14)
 
 
 class MarkDown {
@@ -184,7 +152,7 @@ class MarkDown {
             return [NSFontAttributeName: boldItalic!]
         case .code:
             return [NSFontAttributeName: code!,
-                    NSForegroundColorAttributeName: forgroundColor]
+                    NSForegroundColorAttributeName: OSColor.codeForeground]
         default:
             return [NSFontAttributeName: none]
         }
@@ -207,6 +175,11 @@ class MarkDown {
         return String(text[index - 1]) != mark && text[index - 1] != " "
     }
     
+    private func charFontAttributeAt(_ index: Int) -> OSFont? {
+
+        let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
+        return charAttributes[NSFontAttributeName] as? OSFont
+    }
 
 }
 
