@@ -23,12 +23,13 @@ import Foundation
     
 #endif
 
-let none = OSFont.systemFont(ofSize: 16)
-let bold = OSFont.boldSystemFont(ofSize: 16)
-let italic = OSFont(name: "Helvetica-LightOblique", size: 15)!
-let boldItalic = OSFont(name: "Helvetica-BoldOblique", size: 16)
-let code = OSFont(name: "Courier", size: 14)
-
+struct Fonts {
+    static let regular = OSFont.systemFont(ofSize: 16)
+    static let bold = OSFont.boldSystemFont(ofSize: 16)
+    static let italic = OSFont(name: "Helvetica-LightOblique", size: 15)!
+    static let boldItalic = OSFont(name: "Helvetica-BoldOblique", size: 16)
+    static let code = OSFont(name: "Courier", size: 14)
+}
 
 public class MarkDown {
     
@@ -50,7 +51,7 @@ public class MarkDown {
     
     public init(string: String) {
         text =  string
-        attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  none])
+        attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  Fonts.regular])
     }
     
     // MARK: - Public Marking Functions
@@ -88,7 +89,7 @@ public class MarkDown {
         
         for index in 0..<textSize {
             closeIndex = index
-            guard String(text[index]) == style.rawValue && charFontAttributeAt(index) != code else {
+            guard String(text[index]) == style.rawValue && charFontAttributeAt(index) != Fonts.code else {
                 continue
             }
             if isClosingMarkAt(index, mark: style.rawValue) && lookingForClosingMark {
@@ -129,7 +130,7 @@ public class MarkDown {
                 
                 if let font = charFontAttributeAt(i) {
                     switch font {
-                    case none:
+                    case Fonts.regular:
                         attrText.setAttributes(attributesFor(style), range: charRange)
                     default:
                         attrText.setAttributes(attributesFor(.boldItalic), range: charRange)
@@ -145,16 +146,16 @@ public class MarkDown {
     private func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
         switch style {
         case .bold:
-            return [NSFontAttributeName: bold]
+            return [NSFontAttributeName: Fonts.bold]
         case .italic:
-            return [NSFontAttributeName: italic]
+            return [NSFontAttributeName: Fonts.italic]
         case .boldItalic:
-            return [NSFontAttributeName: boldItalic!]
+            return [NSFontAttributeName: Fonts.boldItalic!]
         case .code:
-            return [NSFontAttributeName: code!,
+            return [NSFontAttributeName: Fonts.code!,
                     NSForegroundColorAttributeName: OSColor.codeForeground]
         default:
-            return [NSFontAttributeName: none]
+            return [NSFontAttributeName: Fonts.regular]
         }
     }
     
