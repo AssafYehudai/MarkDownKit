@@ -142,7 +142,7 @@ public class MarkDown {
         return NSMutableAttributedString(attributedString: res)
     }
     
-    func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
+    private func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
         switch style {
         case .bold:
             return [NSFontAttributeName: bold]
