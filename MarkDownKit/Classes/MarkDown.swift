@@ -23,7 +23,14 @@ import Foundation
         class var codeForeground: UIColor {
             return UIColor(red: 206 / 255.0 , green: 26 / 255.0 , blue: 83 / 255.0 , alpha: 1)
         }
-        
+    }
+    
+    extension MarkDown {
+        func charFontAttributeAt(_ index: Int) -> UIFont? {
+            
+            let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
+            return charAttributes[NSFontAttributeName] as? UIFont
+        }
     }
     
 #elseif os(macOS)
@@ -44,13 +51,21 @@ import Foundation
         }
     }
     
+    extension MarkDown {
+        func charFontAttributeAt(_ index: Int) -> NSFont? {
+            
+            let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
+            return charAttributes[NSFontAttributeName] as? NSFont
+        }
+    }
+    
 #endif
 
 
 class MarkDown {
     
     private var text: String!
-    private var attrText: NSMutableAttributedString!
+    var attrText: NSMutableAttributedString!
     
     // MARK: - Mark Styles
     
@@ -192,11 +207,7 @@ class MarkDown {
         return String(text[index - 1]) != mark && text[index - 1] != " "
     }
     
-    private func charFontAttributeAt(_ index: Int) -> UIFont? {
-        
-        let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
-        return charAttributes[NSFontAttributeName] as? UIFont
-    }
+
 }
 
 
