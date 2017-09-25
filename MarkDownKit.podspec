@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    MarkDownKit Uses NSAttributedString to apply markDown featurs on text.
+    You can use it for chatting apps for example.
+    At the moment the kit marks *Bold* , _Italic_ and `code`.
                        DESC
 
   s.homepage         = 'https://github.com/AssafYehudai/MarkDownKit'
