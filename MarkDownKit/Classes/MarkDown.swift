@@ -8,6 +8,44 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+    
+    let none = UIFont.systemFont(ofSize: 16)
+    let bold = UIFont.boldSystemFont(ofSize: 16)
+    let italic = UIFont.italicSystemFont(ofSize: 15)
+    let boldItalic = UIFont(name: "Helvetica-BoldOblique", size: 16)
+    let code = UIFont(name: "Courier", size: 14)
+    let forgroundColor = UIColor.codeForeground
+    
+    extension UIColor {
+        
+        class var codeForeground: UIColor {
+            return UIColor(red: 206 / 255.0 , green: 26 / 255.0 , blue: 83 / 255.0 , alpha: 1)
+        }
+        
+    }
+    
+#elseif os(macOS)
+    import Cocoa
+    import AppKit
+    
+    let none = NSFont.systemFont(ofSize: 16)
+    let bold = NSFont.boldSystemFont(ofSize: 16)
+    let italic = NSFont(name: "Helvetica-LightOblique", size: 15)
+    let boldItalic = NSFont(name: "Helvetica-BoldOblique", size: 16)
+    let code = NSFont(name: "Courier", size: 14)
+    let forgroundColor = NSColor.codeForeground
+    
+    extension NSColor {
+        
+        class var codeForeground: NSColor {
+            return NSColor(red: 206 / 255.0 , green: 26 / 255.0 , blue: 83 / 255.0 , alpha: 1)
+        }
+    }
+    
+#endif
+
 let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip ex ea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
 
 
@@ -121,6 +159,22 @@ class MarkDown {
         
         let res = attrText.attributedSubstring(from: range)
         return NSMutableAttributedString(attributedString: res)
+    }
+    
+    func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
+        switch style {
+        case .bold:
+            return [NSFontAttributeName: bold]
+        case .italic:
+            return [NSFontAttributeName: italic]
+        case .boldItalic:
+            return [NSFontAttributeName: boldItalic!]
+        case .code:
+            return [NSFontAttributeName: code!,
+                    NSForegroundColorAttributeName: foregroundColor]
+        default:
+            return [NSFontAttributeName: none]
+        }
     }
     
     // MARK: - Open/Close Mark Check
