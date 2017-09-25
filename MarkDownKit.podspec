@@ -24,11 +24,12 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/AssafYehudai/MarkDownKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'AssafYehudai' => 'assaf@hero-apps.io' }
+  s.author           = { 'AssafYehudai' => 'assaf.yehudai@gmail.com' }
   s.source           = { :git => 'https://github.com/AssafYehudai/MarkDownKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
 
   s.source_files = 'MarkDownKit/Classes/**/*'
   
