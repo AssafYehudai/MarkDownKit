@@ -30,10 +30,10 @@ let boldItalic = OSFont(name: "Helvetica-BoldOblique", size: 16)
 let code = OSFont(name: "Courier", size: 14)
 
 
-class MarkDown {
+public class MarkDown {
     
     private var text: String!
-    var attrText: NSMutableAttributedString!
+    private var attrText: NSMutableAttributedString!
     
     // MARK: - Mark Styles
     
@@ -48,7 +48,7 @@ class MarkDown {
     
     // MARK: - Init
     
-    init(string: String) {
+    public init(string: String) {
         text =  string
         attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  none])
     }
