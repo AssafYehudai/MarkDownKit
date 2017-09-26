@@ -17,7 +17,7 @@ MarkDownKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ChatyMarkDownKit', '~>0.5.0'
+pod 'ChatyMarkDownKit', '~>0.6.0'
 ```
 
 ## Author
@@ -30,12 +30,31 @@ MarkDownKit is available under the MIT license. See the LICENSE file for more in
 
 ## Example code 
 ```
-let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip ex ea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
+let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut
+             labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip
+             exea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat
+             null pariatur.Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id
+             est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
 
-var textView: UITextView!
+class ViewController: UIViewController {
 
-init() {
-    textView.attributedText = MarkDown(string: TEXT).markDown()
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var attributesButton: UIButton!
+    let fontSize = CGFloat(16)
+
+    // MARK: - LifeCycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        textView.text = TEXT
+        textView.font = UIFont.systemFont(ofSize: fontSize)
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func SetAttributesTapped(_ sender: UIButton) {
+
+        textView.attributedText = MarkDown(string: TEXT, fontsSize: fontSize).markDown()
+    }
 }
-
 ```

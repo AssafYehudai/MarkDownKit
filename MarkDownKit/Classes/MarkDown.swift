@@ -11,47 +11,30 @@ import Foundation
 #if os(iOS)
     import UIKit
     
-    typealias OSFont = UIFont
-    typealias OSColor = UIColor
+    public typealias OSFont = UIFont
+    public typealias OSColor = UIColor
     
 #elseif os(macOS)
     import Cocoa
     import AppKit
     
-    typealias OSFont = NSFont
-    typealias OSColor = NSColor
+    public typealias OSFont = NSFont
+    public typealias OSColor = NSColor
     
 #endif
-
-struct Fonts {
-    static let regular = OSFont.systemFont(ofSize: 16)
-    static let bold = OSFont.boldSystemFont(ofSize: 16)
-    static let italic = OSFont(name: "Helvetica-LightOblique", size: 15)!
-    static let boldItalic = OSFont(name: "Helvetica-BoldOblique", size: 16)
-    static let code = OSFont(name: "Courier", size: 14)
-}
 
 public class MarkDown {
     
     private var text: String!
     private var attrText: NSMutableAttributedString!
-    
-    // MARK: - Mark Styles
-    
-    enum MarkStyles : String {
-        case bold       = "*"
-        case italic     = "_"
-        case code       = "`"
-        case link       = "["
-        case boldItalic
-        case none
-    }
+    private let fonts: Fonts!
     
     // MARK: - Init
     
-    public init(string: String) {
+    public init(string: String, fontsSize: CGFloat) {
         text =  string
-        attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  Fonts.regular])
+        self.fonts = Fonts(fontsSize: fontsSize)
+        attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  fonts.regular])
     }
     
     // MARK: - Public Marking Functions
@@ -89,7 +72,7 @@ public class MarkDown {
         
         for index in 0..<textSize {
             closeIndex = index
-            guard String(text[index]) == style.rawValue && charFontAttributeAt(index) != Fonts.code else {
+            guard String(text[index]) == style.rawValue && charFontAttributeAt(index) != fonts.code else {
                 continue
             }
             if isClosingMarkAt(index, mark: style.rawValue) && lookingForClosingMark {
@@ -110,7 +93,7 @@ public class MarkDown {
         components.append(getMutableAttrString(lowerB: openIndex, upperB: closeIndex + 1, style: .none))
         return components
     }
-
+    
     // MARK: - Attributes Applying
     
     private func getMutableAttrString(lowerB: Int, upperB: Int, style: MarkStyles) -> NSMutableAttributedString {
@@ -130,8 +113,10 @@ public class MarkDown {
                 
                 if let font = charFontAttributeAt(i) {
                     switch font {
-                    case Fonts.regular:
+                    case fonts.regular:
                         attrText.setAttributes(attributesFor(style), range: charRange)
+                    case fonts.code:
+                        continue
                     default:
                         attrText.setAttributes(attributesFor(.boldItalic), range: charRange)
                     }
@@ -146,16 +131,16 @@ public class MarkDown {
     private func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
         switch style {
         case .bold:
-            return [NSFontAttributeName: Fonts.bold]
+            return [NSFontAttributeName: fonts.bold]
         case .italic:
-            return [NSFontAttributeName: Fonts.italic]
+            return [NSFontAttributeName: fonts.italic]
         case .boldItalic:
-            return [NSFontAttributeName: Fonts.boldItalic!]
+            return [NSFontAttributeName: fonts.boldItalic!]
         case .code:
-            return [NSFontAttributeName: Fonts.code!,
+            return [NSFontAttributeName: fonts.code!,
                     NSForegroundColorAttributeName: OSColor.codeForeground]
         default:
-            return [NSFontAttributeName: Fonts.regular]
+            return [NSFontAttributeName: fonts.regular]
         }
     }
     
@@ -177,10 +162,10 @@ public class MarkDown {
     }
     
     private func charFontAttributeAt(_ index: Int) -> OSFont? {
-
+        
         let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
         return charAttributes[NSFontAttributeName] as? OSFont
     }
-
+    
 }
 
