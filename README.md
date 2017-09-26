@@ -17,7 +17,7 @@ MarkDownKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ChatyMarkDownKit', '~>0.6.0'
+pod 'ChatyMarkDownKit', '~>0.1.1'
 ```
 
 ## Author
