@@ -70,6 +70,10 @@ public class MarkDown {
         var lookingForClosingMark = false
         let textSize = text.characters.count
         
+        guard textSize != 0 else {
+            return components
+        }
+        
         for index in 0..<textSize {
             closeIndex = index
             guard String(text[index]) == style.rawValue && charFontAttributeAt(index) != fonts.code else {
