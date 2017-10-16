@@ -106,6 +106,8 @@ public class MarkDown {
         let range = NSMakeRange(lowerB, nsRangeLength)
         
         switch style {
+        case .strikeThrough:
+            attrText.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: range)
         case .code:
             attrText.setAttributes(attributesFor(.code), range: range)
         case .none:

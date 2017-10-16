@@ -17,7 +17,7 @@ MarkDownKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ChatyMarkDownKit', '~>0.1.2'
+pod 'ChatyMarkDownKit', '~>0.1.3'
 ```
 
 ## Author
@@ -33,7 +33,7 @@ MarkDownKit is available under the MIT license. See the LICENSE file for more in
 let TEXT = "`*_Lorem ipsum dolor_* sit er elit lamet, consectetaur *cillium adipisicing pecu, *sed` do eiusmod tempor incididunt ut
              labore et dolore magna aliqua. Ut enim ad minim veniam,*quis nostrud* exercitation ullamco laboris nisi `ut aliquip
              exea commodo consequat.` Duis aute irure *dolor in _reprehenderit* in voluptate_ velit esse cillum dolore eu fugiat
-             null pariatur.Excepteur sint occaecat cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id
+             null pariatur.~Excepteur sint occaecat~ cupidatat non proident, _sunt in culpa_ qui officia deserunt mollit anim id
              est laborum. Nam liber te *conscient to factor* tum poen legum odioque civiuda."
 
 class ViewController: UIViewController {

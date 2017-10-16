@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ChatyMarkDownKit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'MarkDownKit is a kit allowing you to use markdown notation in your apps, on iOS and macOS'
 
 # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
     MarkDownKit Uses NSAttributedString to apply markDown featurs on text.
     You can use it for chatting apps for example.
-    At the moment the kit marks *Bold* , _Italic_ and `code`.
+    At the moment the kit marks *Bold* , _Italic_, `code` and ~strikeThrough~.
                        DESC
 
   s.homepage         = 'https://github.com/AssafYehudai/MarkDownKit'
