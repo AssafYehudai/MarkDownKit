@@ -109,7 +109,7 @@ public class MarkDown {
         
         switch style {
         case .strikeThrough:
-            attrText.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: range)
+            attrText.addAttributes(attributesFor(.strikeThrough), range: range)
         case .code:
             attrText.setAttributes(attributesFor(.code), range: range)
         case .none:
@@ -136,7 +136,7 @@ public class MarkDown {
         return NSMutableAttributedString(attributedString: res)
     }
     
-    private func attributesFor(_ style: MarkStyles) -> [String: AnyObject] {
+    private func attributesFor(_ style: MarkStyles) -> [String: Any] {
         switch style {
         case .bold:
             return [NSFontAttributeName: fonts.bold]
@@ -147,6 +147,9 @@ public class MarkDown {
         case .code:
             return [NSFontAttributeName: fonts.code!,
                     NSForegroundColorAttributeName: OSColor.codeForeground]
+        case .strikeThrough:
+            return [NSStrikethroughStyleAttributeName: 1,
+                    NSStrikethroughColorAttributeName: OSColor.black]
         default:
             return [NSFontAttributeName: fonts.regular]
         }
