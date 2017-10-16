@@ -49,6 +49,8 @@ public class MarkDown {
         components = getMarkDownComponents(.italic)
         updateAtterbutedTextFrom(components)
         
+        components = getMarkDownComponents(.strikeThrough)
+        updateAtterbutedTextFrom(components)
         return attrText
     }
     
