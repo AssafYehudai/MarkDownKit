@@ -34,5 +34,7 @@ extension String {
         return self[index(startIndex, offsetBy: i)]
     }
     
-    
+    func nsRange(from range: Range<Index>) -> NSRange {
+        return NSRange(range, in: self)
+    }
 }

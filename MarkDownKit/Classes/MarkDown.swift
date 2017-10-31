@@ -51,6 +51,8 @@ public class MarkDown {
         
         components = getMarkDownComponents(.strikeThrough)
         updateAtterbutedTextFrom(components)
+        
+        checkForLinkes()
         return attrText
     }
     
@@ -98,6 +100,17 @@ public class MarkDown {
         }
         components.append(getMutableAttrString(lowerB: openIndex, upperB: closeIndex + 1, style: .none))
         return components
+    }
+    
+    private func checkForLinkes() {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        let matches = detector.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
+        for match in matches {
+            guard let range = Range(match.range, in: text) else { continue }
+            if let url  = URL(string: text[range]) {
+                attrText.addAttribute(NSLinkAttributeName, value: url, range: text.nsRange(from: range))
+            }
+        }
     }
     
     // MARK: - Attributes Applying
