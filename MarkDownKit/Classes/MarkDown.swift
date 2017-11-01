@@ -52,7 +52,7 @@ public class MarkDown {
         components = getMarkDownComponents(.strikeThrough)
         updateAtterbutedTextFrom(components)
         
-        checkForLinkes()
+        checkForLinks()
         return attrText
     }
     
@@ -102,7 +102,7 @@ public class MarkDown {
         return components
     }
     
-    private func checkForLinkes() {
+    private func checkForLinks() {
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let matches = detector.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
         for match in matches {
