@@ -14,7 +14,6 @@ public enum MarkStyles : String {
     case bold           = "*"
     case italic         = "_"
     case code           = "`"
-    case link
     case strikeThrough  = "~"
     case boldItalic
     case none

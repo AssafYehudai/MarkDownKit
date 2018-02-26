@@ -40,6 +40,7 @@ public class MarkDown {
     // MARK: - Public Marking Functions
     
     public func markDown() -> NSAttributedString {
+        
         var components = getMarkDownComponents(.code)
         updateAtterbutedTextFrom(components)
         
@@ -72,7 +73,7 @@ public class MarkDown {
         var openIndex = 0
         var closeIndex = 0
         var lookingForClosingMark = false
-        let textSize = text.characters.count
+        let textSize = text.count
         
         guard textSize != 0 else {
             return components
@@ -171,7 +172,7 @@ public class MarkDown {
     // MARK: - Open/Close Mark Check
     
     private func isOpenMarkAt(_ index: Int, mark: String) -> Bool {
-        guard index < text.characters.count else {
+        guard index < text.count - 1 else {
             return false
         }
         return String(text[index + 1]) != mark && text[index + 1] != " "
@@ -190,6 +191,5 @@ public class MarkDown {
         let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
         return charAttributes[NSFontAttributeName] as? OSFont
     }
-    
 }
 
