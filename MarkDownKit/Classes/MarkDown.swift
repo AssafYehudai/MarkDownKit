@@ -34,9 +34,9 @@ public class MarkDown {
     public init(string: String, fontsSize: CGFloat) {
         text =  string
         self.fonts = Fonts(fontsSize: fontsSize)
-        attrText = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:  fonts.regular])
+        attrText = NSMutableAttributedString(string: text, attributes: [.font:  fonts.regular])
     }
-    
+
     // MARK: - Public Marking Functions
     
     public func markDown() -> NSAttributedString {
@@ -108,8 +108,8 @@ public class MarkDown {
         let matches = detector.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
         for match in matches {
             guard let range = Range(match.range, in: text) else { continue }
-            if let url  = URL(string: text[range]) {
-                attrText.addAttribute(NSLinkAttributeName, value: url, range: text.nsRange(from: range))
+            if let url  = URL(string: String(text[range])) {
+                attrText.addAttribute(.link, value: url, range: text.nsRange(from: range))
             }
         }
     }
@@ -150,22 +150,22 @@ public class MarkDown {
         return NSMutableAttributedString(attributedString: res)
     }
     
-    private func attributesFor(_ style: MarkStyles) -> [String: Any] {
+    private func attributesFor(_ style: MarkStyles) -> [NSAttributedStringKey: Any] {
         switch style {
         case .bold:
-            return [NSFontAttributeName: fonts.bold]
+            return [.font: fonts.bold]
         case .italic:
-            return [NSFontAttributeName: fonts.italic]
+            return [.font: fonts.italic]
         case .boldItalic:
-            return [NSFontAttributeName: fonts.boldItalic!]
+            return [.font: fonts.boldItalic!]
         case .code:
-            return [NSFontAttributeName: fonts.code!,
-                    NSForegroundColorAttributeName: OSColor.codeForeground]
+            return [.font: fonts.code!,
+                    .foregroundColor: OSColor.codeForeground]
         case .strikeThrough:
-            return [NSStrikethroughStyleAttributeName: 1,
-                    NSStrikethroughColorAttributeName: OSColor.black]
+            return [.strikethroughStyle: 1,
+                    .strikethroughColor: OSColor.black]
         default:
-            return [NSFontAttributeName: fonts.regular]
+            return [.font: fonts.regular]
         }
     }
     
@@ -189,7 +189,7 @@ public class MarkDown {
     private func charFontAttributeAt(_ index: Int) -> OSFont? {
         
         let charAttributes = attrText.attributes(at: index, effectiveRange: nil)
-        return charAttributes[NSFontAttributeName] as? OSFont
+        return charAttributes[.font] as? OSFont
     }
 }
 
